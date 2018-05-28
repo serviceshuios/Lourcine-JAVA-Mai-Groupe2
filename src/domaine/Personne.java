@@ -1,9 +1,18 @@
 package domaine;
 
+import java.util.Collection;
+
 public class Personne {
 	private int idPersonne, age;
 	private String nom, prenom;
+	private Collection<Club> liClubs;
 	
+	public Collection<Club> getLiClubs() {
+		return liClubs;
+	}
+	public void setLiClubs(Collection<Club> liClubs) {
+		this.liClubs = liClubs;
+	}
 	public int getIdPersonne() {
 		return idPersonne;
 	}

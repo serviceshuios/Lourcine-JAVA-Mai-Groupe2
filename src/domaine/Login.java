@@ -3,6 +3,7 @@ package domaine;
 public class Login {
 	private int idLogin;
 	private String pseudo, mdp;
+	private Personne pers;
 	
 	public int getIdLogin() {
 		return idLogin;
