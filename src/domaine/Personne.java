@@ -6,6 +6,8 @@ public class Personne {
 	private int idPersonne, age;
 	private String nom, prenom;
 	private Collection<Club> liClubs;
+	private Collection<Compte> liComptes;
+	private Login log;
 	
 	public Collection<Club> getLiClubs() {
 		return liClubs;

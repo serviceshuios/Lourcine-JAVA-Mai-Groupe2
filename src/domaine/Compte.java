@@ -1,9 +1,12 @@
 package domaine;
 
+import java.util.Collection;
+
 public class Compte {
 	//declarer les variables
 	private int idCompte;
 	private double solde;
+	private Collection<Compte> liComptes;
 	
 	//getter & setter
 	/**

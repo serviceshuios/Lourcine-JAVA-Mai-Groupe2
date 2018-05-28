@@ -7,7 +7,7 @@ public class Club {
 	private String nomClub;
 	private Collection<Personne> liPersonne;
 	
-	public Club(int idClub, String nomClub, Collection<Personnes> liPersonne) {
+	public Club(int idClub, String nomClub, Collection<Personne> liPersonne) {
 		
 		this.idClub = idClub;
 		this.nomClub = nomClub;
