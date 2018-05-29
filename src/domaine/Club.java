@@ -1,11 +1,12 @@
 package domaine;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Club {
 	private int idClub;
 	private String nomClub;
-	private Collection<Personne> liPersonne;
+	private Collection<Personne> liPersonne = new ArrayList();
 	
 	public Club(int idClub, String nomClub, Collection<Personne> liPersonne) {
 		

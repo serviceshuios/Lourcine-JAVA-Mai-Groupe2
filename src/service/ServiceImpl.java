@@ -13,7 +13,9 @@ public class ServiceImpl implements IService {
 	//DECLARER ET INITIALISER LAA LISTE DES PERSONNES
 	
 	private Map<Integer,Personne> personnes = new Hashtable<Integer,Personne>();
+	private Map<Integer,Compte> comptes = new Hashtable<Integer,Compte>();
 	
+	//GETTERS & SETTERS
 	public Map<Integer, Personne> getPersonnes() {
 		return personnes;
 		}
@@ -21,10 +23,16 @@ public class ServiceImpl implements IService {
 		this.personnes = personnes;
 		}
 
-
+	public Map<Integer, Compte> getComptes() {
+		return comptes;
+	}
+	public void setComptes(Map<Integer, Compte> comptes) {
+		this.comptes = comptes;
+	}
+	
+	//METHODES
 	@Override
 	public Map<Integer,Personne> createPersonne(Personne p) {
-	// TODO Auto-generated method stub
 	personnes.put(p.getIdPersonne(), p);
 	return personnes;
 	}
@@ -49,16 +57,15 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public void listPersonne(Map<Integer,Personne> personnes) {
-	// TODO Auto-generated method stub
 	for (Map.Entry<Integer, Personne> entry : personnes.entrySet()) {
-	System.out.println(entry);
+	System.out.println(entry.getKey() + "\t" + entry.getValue().toString());
 	}
 	}
 	
 	@Override
-	public void createCompte(Compte c) {
-		// TODO Auto-generated method stub
-		
+	public Map<Integer, Compte> createCompte(Compte c) {
+		comptes.put(c.getIdCompte(), c);
+		return comptes;
 	}
 
 	@Override
@@ -80,8 +87,11 @@ public class ServiceImpl implements IService {
 	}
 
 	@Override
-	public void listCompte() {
-		// TODO Auto-generated method stub
+	
+	public void listCompte(Map<Integer, Compte> comptes) {
+		for(Map.Entry<Integer,Compte> ent : comptes.entrySet()) {
+			System.out.println(ent.getKey() +"\t" + ent.toString());
+		}
 		
 	}
 
@@ -147,8 +157,8 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public void attribuerCompte(Personne p, Compte c) {
-		// TODO Auto-generated method stub
-		
+		p.getLiComptes().add(c);
+		c.setPersonne(p);
 	}
 
 	@Override
@@ -165,13 +175,14 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public void ajouterTitulaire(Personne p, Compte c) {
-		// TODO Auto-generated method stub
-		
+		p.getLiComptes().add(c);
+		c.setPersonne(p);
 	}
 
 	@Override
 	public void ajouterPersonneClub(Personne p, Club c) {
-		// TODO Auto-generated method stub
+		p.getLiClubs().add(c);
+		c.getLiPersonne().add(p);
 		
 	}
 	

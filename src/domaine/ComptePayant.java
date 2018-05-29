@@ -11,9 +11,13 @@ public class ComptePayant extends Compte {
 		this.taux = taux;
 	}
 
-	public ComptePayant(double taux) {
-		super();
+	public ComptePayant(int id, double solde, double taux) {
+		super(id,solde);
 		this.taux = taux;
+	}
+	@Override
+	public String toString() {
+		return "ComptePayant " + "\t"+ super.toString() + "\t" + "decouvert= Non Authorisé" + "\t" + "Tx epargne= Aucun" + "\t" + "Taxe :" + taux  ;
 	}
 	
 }

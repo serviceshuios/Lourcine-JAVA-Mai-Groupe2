@@ -4,8 +4,8 @@ public class CompteSimple extends Compte{
 	private double decouvert;
 	
 	//builder
-	public CompteSimple(double dec) {
-		super();
+	public CompteSimple(int id, double solde, double dec) {
+		super(id, solde);
 		this.decouvert = dec;
 	}
 
@@ -22,6 +22,11 @@ public class CompteSimple extends Compte{
 	 */
 	public void setDecouvert(double decouvert) {
 		this.decouvert = decouvert;
+	}
+
+	@Override
+	public String toString() {
+		return "CompteSimple " + "\t"+ super.toString() + "\t" + "decouvert=" + decouvert + "\t\t\t" + "Tx epargne= Aucun" + "\t" + "Taxe : Aucune";
 	}
 	
 	

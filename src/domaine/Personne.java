@@ -1,14 +1,23 @@
 package domaine;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Personne {
 	private int idPersonne, age;
 	private String nom, prenom;
-	private Collection<Club> liClubs;
-	private Collection<Compte> liComptes;
+	private Collection<Club> liClubs = new ArrayList();
+	private Collection<Compte> liComptes= new ArrayList();
 	private Login log;
 	
+	
+	
+	public Collection<Compte> getLiComptes() {
+		return liComptes;
+	}
+	public void setLiComptes(Collection<Compte> liComptes) {
+		this.liComptes = liComptes;
+	}
 	public Collection<Club> getLiClubs() {
 		return liClubs;
 	}
@@ -45,6 +54,18 @@ public class Personne {
 		this.age = age;
 		this.nom = nom;
 		this.prenom = prenom;
+	}
+	@Override
+	public String toString() {
+		
+		String str="";
+		if (this.liComptes!=null) {
+			for(Compte cpt:this.liComptes) {
+				str = str + "\n" + cpt.toString();
+			}
+		}
+			
+		return "Personne [age=" + age + ", nom=" + nom + ", prenom=" + prenom + "]" + str;
 	}
 	
 }

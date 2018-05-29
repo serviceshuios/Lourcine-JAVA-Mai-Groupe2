@@ -6,6 +6,13 @@ public abstract class Compte {
 	private double solde;
 	private Personne personne;
 	
+	//Constructeur
+	public Compte(int idCompte, double solde) {
+		super();
+		this.idCompte = idCompte;
+		this.solde = solde;
+	}
+	/**
 	//getter & setter
 	/**
 	 * @return the idCompte
@@ -13,8 +20,8 @@ public abstract class Compte {
 	public int getIdCompte() {
 		return idCompte;
 	}
-	/**
-	 * @param idCompte the idCompte to set
+
+	 /*@param idCompte the idCompte to set
 	 */
 	public void setIdCompte(int idCompte) {
 		this.idCompte = idCompte;
@@ -42,6 +49,10 @@ public abstract class Compte {
 	 */
 	public void setPersonne(Personne personne) {
 		this.personne = personne;
+	}
+	@Override
+	public String toString() {
+		return "ID=" + idCompte + "\t" + "solde=" + solde;
 	}
 
 	

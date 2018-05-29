@@ -11,9 +11,14 @@ public class CompteEpargne extends Compte{
 		this.pourcentage = pourcentage;
 	}
 
-	public CompteEpargne(double pourcentage) {
-		super();
+	public CompteEpargne(int id, double solde, double pourcentage) {
+		super(id, solde);
 		this.pourcentage = pourcentage;
+	}
+
+	@Override
+	public String toString() {
+		return "CompteEpargne " + "\t" + super.toString() + "\t" + "decouvert= Non Authorisé" + "\t" + "Tx epargne=" + pourcentage  + "\t\t" + "Taxe : Aucune" ;
 	}
 	
 }

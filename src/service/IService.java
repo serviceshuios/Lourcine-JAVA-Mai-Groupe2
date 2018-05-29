@@ -18,12 +18,12 @@ public interface IService {
 	
 	public void listPersonne(Map<Integer,Personne> personnes);
 	
-	public void createCompte(Compte c);
+	public Map<Integer,Compte> createCompte(Compte c);
 	public void readCompte(Compte c);
 	public void updateCompte(Compte c);
 	public void deleteCompte(Compte c);
 	
-	public void listCompte();
+	public void listCompte(Map<Integer, Compte> comptes);
 	
 	public void createClub(Club b);
 	public void readClub(Club b) ;
