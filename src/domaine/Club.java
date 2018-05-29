@@ -6,13 +6,12 @@ import java.util.Collection;
 public class Club {
 	private int idClub;
 	private String nomClub;
-	private Collection<Personne> liPersonne = new ArrayList();
+	private Collection<Personne> liPersonne = new ArrayList<Personne>();
 	
-	public Club(int idClub, String nomClub, Collection<Personne> liPersonne) {
+	public Club(int idClub, String nomClub) {
 		
 		this.idClub = idClub;
 		this.nomClub = nomClub;
-		liPersonne = liPersonne;
 	}
 
 	public int getIdClub() {
@@ -37,6 +36,11 @@ public class Club {
 
 	public void setLiPersonne(Collection<Personne> liPersonne) {
 		this.liPersonne = liPersonne;
+	}
+
+	@Override
+	public String toString() {
+		return "Club [idClub=" + idClub + ", nomClub=" + nomClub + "]";
 	}
 	
 	

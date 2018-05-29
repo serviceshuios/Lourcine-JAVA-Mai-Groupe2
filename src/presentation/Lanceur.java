@@ -3,6 +3,7 @@ package presentation;
 import java.util.Hashtable;
 import java.util.Map;
 
+import domaine.Club;
 import domaine.Compte;
 import domaine.CompteEpargne;
 import domaine.ComptePayant;
@@ -18,16 +19,16 @@ public class Lanceur {
 
 		// TODO Auto-generated method stub
 		IService service = new ServiceImpl();
-		Map<Integer, Personne> resultats = new Hashtable<Integer, Personne>();
+		Map<Integer, Personne> resPersonne = new Hashtable<Integer, Personne>();
 		System.out.println("AFFICHAGE MAP AVANT AJOUT");
-		service.listPersonne(resultats);
+		service.listPersonne(resPersonne);
 		System.out.println("AJOUT D'UNE PERSONNE");
-		Personne p = new Personne(1, "ZEC", "UNION", 20);
-		Personne p2 = new Personne(2, "ZEC2", "UNION2", 22);
-		resultats = service.createPersonne(p);
-		resultats = service.createPersonne(p2);
+		Personne p = new Personne(1, "Rolland", "Thierry", 20);
+		Personne p2 = new Personne(2, "Zidane", "Zinedine", 22);
+		resPersonne = service.createPersonne(p);
+		resPersonne = service.createPersonne(p2);
 		System.out.println("AFFICHAGE MAP APRES AJOUT");
-		service.listPersonne(resultats);
+		service.listPersonne(resPersonne);
 		
 		System.out.println("--------------Comptes--------------");
 		Map<Integer, Compte> resCompte= new Hashtable<Integer, Compte>();
@@ -50,7 +51,24 @@ public class Lanceur {
 		service.ajouterTitulaire(p, c3);
 		service.attribuerCompte(p2, c2);
 		service.attribuerCompte(p2, c4);
-		service.listPersonne(resultats);
+		service.listPersonne(resPersonne);
+		
+		System.out.println("\n--------------Affiliation des Clubs--------------");
+		Map<Integer,Club> resClub = new Hashtable<Integer,Club>();
+		Club cb1 = new Club(1,"Club des écrivains imaginaires");
+		resClub = service.createClub(cb1);
+		Club cb2 = new Club(2,"Club des 5");
+		resClub = service.createClub(cb2);
+		
+		Personne p3 = new Personne(3, "Lapix", "Anne-Sophie", 30);
+		resPersonne=service.createPersonne(p3);
+		
+		service.affilierClub(p, cb1);
+		service.affilierClub(p2, cb2);
+		service.ajouterPersonneClub(p3, cb2);
+		
+		service.listClub(resClub);
+		
 		
 		
 	}

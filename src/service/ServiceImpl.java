@@ -15,6 +15,7 @@ public class ServiceImpl implements IService {
 
 	private Map<Integer, Personne> personnes = new Hashtable<Integer, Personne>();
 	private Map<Integer, Compte> comptes = new Hashtable<Integer, Compte>();
+	private Map<Integer, Club> clubs = new Hashtable<Integer, Club>();
 
 	// GETTERS & SETTERS
 	public Map<Integer, Personne> getPersonnes() {
@@ -62,6 +63,16 @@ public class ServiceImpl implements IService {
 	public void listPersonne(Map<Integer, Personne> personnes) {
 		for (Map.Entry<Integer, Personne> entry : personnes.entrySet()) {
 			System.out.println(entry.getKey() + "\t" + entry.getValue().toString());
+			if (entry.getValue().getLiComptes() != null) {
+				for (Compte cpt : entry.getValue().getLiComptes()) {
+					System.out.println(cpt.toString());
+				}
+				if (entry.getValue().getLiClubs() != null) {
+					for (Club club : entry.getValue().getLiClubs()) {
+						System.out.println(club.toString());
+					}
+				}
+			}
 		}
 	}
 
@@ -99,8 +110,9 @@ public class ServiceImpl implements IService {
 	}
 
 	@Override
-	public void createClub(Club b) {
-		// TODO Auto-generated method stub
+	public Map<Integer, Club> createClub(Club b) {
+		clubs.put(b.getIdClub(), b);
+		return clubs;
 
 	}
 
@@ -123,8 +135,15 @@ public class ServiceImpl implements IService {
 	}
 
 	@Override
-	public void listClub() {
-		// TODO Auto-generated method stub
+	public void listClub(Map<Integer, Club> clubs) {
+		for (Map.Entry<Integer, Club> clb : clubs.entrySet()) {
+			System.out.println(clb.toString());
+			if(clb.getValue().getLiPersonne()!=null) {
+				for(Personne p:clb.getValue().getLiPersonne()) {
+					System.out.println(p.toString());
+				}
+			}
+		}
 
 	}
 
@@ -166,7 +185,8 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public void affilierClub(Personne p, Club b) {
-		// TODO Auto-generated method stub
+		p.getLiClubs().add(b);
+		b.getLiPersonne().add(p);
 
 	}
 

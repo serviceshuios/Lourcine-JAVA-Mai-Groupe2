@@ -9,7 +9,7 @@ import domaine.Personne;
 
 public interface IService {
 	
-//crée un CROUD pour la Classe Personne; Compte; Club; Mogin (définir les signatures)
+//crï¿½e un CROUD pour la Classe Personne; Compte; Club; Mogin (dï¿½finir les signatures)
 	
 	public Map<Integer,Personne> createPersonne(Personne p);
 	public void readPersonne(Personne p);
@@ -25,12 +25,12 @@ public interface IService {
 	
 	public void listCompte(Map<Integer, Compte> comptes);
 	
-	public void createClub(Club b);
+	public Map<Integer, Club> createClub(Club b);
 	public void readClub(Club b) ;
 	public void updateClub(Club b);
 	public void deleteClub(Club b);
 	
-	public void listClub();
+	public void listClub(Map<Integer, Club> clubs);
 	
 	public void createlogin(Login l);
 	public void readlogin(Login l);

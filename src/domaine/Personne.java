@@ -58,14 +58,14 @@ public class Personne {
 	@Override
 	public String toString() {
 		
-		String str="";
+		/*String str="";
 		if (this.liComptes!=null) {
 			for(Compte cpt:this.liComptes) {
 				str = str + "\n" + cpt.toString();
 			}
-		}
+		}*/
 			
-		return "Personne [age=" + age + ", nom=" + nom + ", prenom=" + prenom + "]" + str;
+		return "Personne [age=" + age + ", nom=" + nom + ", prenom=" + prenom + "]";
 	}
 	
 }
