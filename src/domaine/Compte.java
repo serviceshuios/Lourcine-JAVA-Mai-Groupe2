@@ -1,12 +1,10 @@
 package domaine;
 
-import java.util.Collection;
-
-public class Compte {
+public abstract class Compte {
 	//declarer les variables
 	private int idCompte;
 	private double solde;
-	private Collection<Compte> liComptes;
+	private Personne personne;
 	
 	//getter & setter
 	/**
@@ -32,6 +30,18 @@ public class Compte {
 	 */
 	public void setSolde(double solde) {
 		this.solde = solde;
+	}
+	/**
+	 * @return the solde
+	 */
+	public Personne getpersonne() {
+		return personne;
+	}
+	/**
+	 * @param solde the solde to set
+	 */
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 	

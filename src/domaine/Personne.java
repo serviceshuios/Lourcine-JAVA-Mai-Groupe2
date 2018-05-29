@@ -39,8 +39,9 @@ public class Personne {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Personne(int age, String nom, String prenom) {
+	public Personne(int id, String nom, String prenom, int age) {
 		super();
+		this.idPersonne = id;
 		this.age = age;
 		this.nom = nom;
 		this.prenom = prenom;
